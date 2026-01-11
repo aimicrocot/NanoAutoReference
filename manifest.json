@@ -1,0 +1,8 @@
+{
+    "name": "NanoAutoReference",
+    "display_name": "Nano Banana Auto-Reference",
+    "version": "Nano 1.2.0",
+    "description": "Automatically attaches character face data to prompts containing a specific service URL.",
+    "author": "Microcot",
+    "entrypoint": "index.js"
+}
