@@ -1,0 +1,181 @@
+<div class="nano_banana_generation">
+    <div class="inline-drawer">
+        <div class="inline-drawer-toggle inline-drawer-header">
+            <b>Universal Nano Banana Pro 🍌</b>
+            <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div class="inline-drawer-content">
+            <!-- Service Configuration -->
+            <div class="flex-container flexFlowColumn">
+                <div class="flex-item">
+                    <label for="nano_service_type"><b>Service Type:</b></label>
+                    <select id="nano_service_type">
+                        <option value="custom">Custom Service</option>
+                        <option value="replicate">Replicate API</option>
+                        <option value="openai">OpenAI/DALL-E</option>
+                        <option value="stability">Stability AI</option>
+                    </select>
+                </div>
+
+                <div class="flex-item">
+                    <label for="nano_endpoint_url"><b>Endpoint URL:</b></label>
+                    <input id="nano_endpoint_url" type="text" placeholder="https://your-service.com/nano-banana/generate" />
+                    <small class="note">URL of your Nano Banana Pro service</small>
+                </div>
+
+                <div class="flex-item">
+                    <label for="nano_api_key"><b>API Key:</b></label>
+                    <input id="nano_api_key" type="password" placeholder="Enter your API key" />
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Avatar Reference -->
+            <div class="flex-container flexFlowColumn">
+                <div class="flex-item">
+                    <label>
+                        <input id="nano_use_avatar" type="checkbox" checked>
+                        <b>Use Character Avatar as Face Reference</b>
+                    </label>
+                    <small class="note">Use avatar for exact facial feature preservation</small>
+                </div>
+
+                <div id="nano_face_strength_container" class="flex-item">
+                    <label for="nano_face_strength"><b>Face Reference Strength:</b> <span id="nano_strength_value">0.85</span></label>
+                    <input id="nano_face_strength" type="range" min="0.1" max="1.0" step="0.05" value="0.85" />
+                    <small class="note">Higher = more accurate to avatar</small>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Context Settings -->
+            <div class="flex-container flexFlowColumn">
+                <div class="flex-item">
+                    <label>
+                        <input id="nano_use_context" type="checkbox">
+                        <b>Use Conversation Context</b>
+                    </label>
+                    <small class="note">Include recent messages in prompt</small>
+                </div>
+
+                <div id="nano_context_depth_container" class="flex-item" style="display: none;">
+                    <label for="nano_context_depth"><b>Context Depth (messages):</b></label>
+                    <input id="nano_context_depth" type="number" min="1" max="10" value="2" />
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Generation Parameters -->
+            <div class="flex-container flexFlowColumn">
+                <div class="flex-item">
+                    <label for="nano_model"><b>Model:</b></label>
+                    <input id="nano_model" type="text" value="nano-banana-pro" readonly />
+                    <small class="note">Nano Banana Pro model</small>
+                </div>
+
+                <div class="flex-item">
+                    <label for="nano_quality"><b>Quality:</b></label>
+                    <select id="nano_quality">
+                        <option value="standard">Standard</option>
+                        <option value="premium" selected>Premium</option>
+                        <option value="ultra">Ultra</option>
+                    </select>
+                </div>
+
+                <div class="flex-item">
+                    <label for="nano_style"><b>Style:</b></label>
+                    <select id="nano_style">
+                        <option value="realistic">Realistic</option>
+                        <option value="anime">Anime</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="digital_art">Digital Art</option>
+                        <option value="photographic">Photographic</option>
+                    </select>
+                </div>
+
+                <div class="flex-item">
+                    <label for="nano_negative_prompt"><b>Negative Prompt:</b></label>
+                    <textarea id="nano_negative_prompt" rows="2">low quality, blurry, deformed, distorted, bad anatomy</textarea>
+                </div>
+
+                <div class="flex-container flexGap5">
+                    <div class="flex-item">
+                        <label for="nano_width"><b>Width:</b></label>
+                        <input id="nano_width" type="number" min="256" max="2048" value="1024" />
+                    </div>
+                    <div class="flex-item">
+                        <label for="nano_height"><b>Height:</b></label>
+                        <input id="nano_height" type="number" min="256" max="2048" value="1024" />
+                    </div>
+                </div>
+
+                <div class="flex-container flexGap5">
+                    <div class="flex-item">
+                        <label for="nano_guidance_scale"><b>Guidance Scale:</b></label>
+                        <input id="nano_guidance_scale" type="number" min="1" max="20" step="0.5" value="7.5" />
+                    </div>
+                    <div class="flex-item">
+                        <label for="nano_seed"><b>Seed (-1 for random):</b></label>
+                        <input id="nano_seed" type="number" min="-1" max="9999999" value="-1" />
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Advanced Settings -->
+            <div class="flex-container flexFlowColumn">
+                <div class="flex-item">
+                    <label for="nano_system_prompt"><b>System Instructions:</b></label>
+                    <textarea id="nano_system_prompt" rows="3">You are Nano Banana Pro image generator. Generate high-quality images based on the prompt and reference images. When character avatar is provided, use it as exact facial reference maintaining all facial features.</textarea>
+                </div>
+
+                <div id="nano_request_format_container" class="flex-item">
+                    <label for="nano_request_format"><b>Request Format:</b></label>
+                    <select id="nano_request_format">
+                        <option value="multipart">Multipart/form-data</option>
+                        <option value="json">JSON</option>
+                    </select>
+                </div>
+
+                <div id="nano_avatar_field_container" class="flex-item">
+                    <label for="nano_avatar_field"><b>Avatar Field Name:</b></label>
+                    <input id="nano_avatar_field" type="text" value="reference_image" />
+                    <small class="note">Field name for avatar image in API request</small>
+                </div>
+
+                <div id="nano_prompt_field_container" class="flex-item">
+                    <label for="nano_prompt_field"><b>Prompt Field Name:</b></label>
+                    <input id="nano_prompt_field" type="text" value="prompt" />
+                    <small class="note">Field name for prompt in API request</small>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Quick Generation -->
+            <div class="flex-container flexFlowColumn">
+                <div class="flex-item">
+                    <label for="nano_quick_prompt"><b>Test Generation:</b></label>
+                    <textarea id="nano_quick_prompt" rows="2" placeholder="Enter your test prompt here..."></textarea>
+                </div>
+
+                <div class="flex-item">
+                    <button id="nano_quick_generate" class="menu_button">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>Generate Test Image</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preview -->
+            <div id="nano_preview_container" class="flex-item" style="display: none; margin-top: 15px;">
+                <label><b>Generated Image:</b></label>
+                <img id="nano_preview_image" style="max-width: 100%; border-radius: 5px;" />
+            </div>
+        </div>
+    </div>
+</div>
