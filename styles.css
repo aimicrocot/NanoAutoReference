@@ -1,0 +1,110 @@
+/* Universal Nano Banana Pro Styles 🍌 */
+.nano_banana_generation .inline-drawer-content {
+    padding: 15px;
+}
+
+.nano_banana_generation .flex-item {
+    margin-bottom: 10px;
+}
+
+.nano_banana_generation label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.nano_banana_generation input[type="text"],
+.nano_banana_generation input[type="password"],
+.nano_banana_generation input[type="number"],
+.nano_banana_generation textarea,
+.nano_banana_generation select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 4px;
+    background: var(--SmartThemeBodyColor);
+    color: var(--SmartThemeTextColor);
+}
+
+.nano_banana_generation input[type="range"] {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.nano_banana_generation textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.nano_banana_generation .note {
+    display: block;
+    font-size: 12px;
+    color: var(--SmartThemeQuoteColor);
+    margin-top: 2px;
+}
+
+.nano_banana_generation .menu_button {
+    width: 100%;
+    padding: 10px;
+    background: var(--SmartThemeBlurTintColor);
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 4px;
+    color: var(--SmartThemeTextColor);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+
+.nano_banana_generation .menu_button:hover {
+    background: var(--SmartThemeBlurTintColorHover);
+}
+
+.nano_banana_generation .menu_button.generating {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Стили для кнопки сообщения */
+.nano_message_gen {
+    color: #ff6b6b !important; /* Красный для Nano Banana */
+}
+
+.nano_message_gen.nano_busy {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.nano_message_gen:hover {
+    color: #ff8e8e !important;
+}
+
+/* Стили для превью */
+#nano_preview_image {
+    max-width: 100%;
+    border-radius: 5px;
+    border: 1px solid var(--SmartThemeBorderColor);
+}
+
+/* Разделитель */
+.nano_banana_generation hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid var(--SmartThemeBorderColor);
+}
+
+/* Контейнеры с настройками видимости */
+#nano_face_strength_container,
+#nano_context_depth_container,
+#nano_request_format_container,
+#nano_avatar_field_container,
+#nano_prompt_field_container {
+    transition: all 0.3s ease;
+}
+
+/* Значение ползунка */
+#nano_strength_value {
+    color: #ff6b6b;
+    font-weight: bold;
+}
